@@ -2,11 +2,24 @@
 'use strict';
 
 
+function getAge(entity) {
+  return entity[/* age */0];
+}
+
 var me = /* record */[
-  /* age */23,
-  /* name */"Vasya",
-  /* occupation */"Student"
+  /* age */33,
+  /* name */"Igor"
 ];
 
+var monster = /* record */[
+  /* age */999,
+  /* hasTentacles */true
+];
+
+var monsterAge = 33;
+
+exports.getAge = getAge;
 exports.me = me;
+exports.monster = monster;
+exports.monsterAge = monsterAge;
 /* No side effect */

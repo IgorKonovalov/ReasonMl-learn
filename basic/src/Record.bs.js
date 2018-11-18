@@ -8,6 +8,8 @@ var igor = /* record */[
   /* occupation */"Programmer"
 ];
 
+igor[/* occupation */2] = "Tourist guide";
+
 var igorRecord = /* record */[
   /* person */igor,
   /* id */1
@@ -20,9 +22,9 @@ var sasha = /* record */[
 ];
 
 var igorNextYear = /* record */[
-  /* age */34,
-  /* name */"Igor",
-  /* occupation */"Programmer"
+  /* age */igor[/* age */0] + 1 | 0,
+  /* name */igor[/* name */1],
+  /* occupation */igor[/* occupation */2]
 ];
 
 function sayName(param) {
@@ -33,10 +35,15 @@ var greeting = sayName(sasha);
 
 console.log(greeting);
 
+function getAge(entity) {
+  return entity[/* age */0];
+}
+
 exports.igor = igor;
 exports.igorRecord = igorRecord;
 exports.sasha = sasha;
 exports.igorNextYear = igorNextYear;
 exports.sayName = sayName;
 exports.greeting = greeting;
-/* greeting Not a pure module */
+exports.getAge = getAge;
+/*  Not a pure module */

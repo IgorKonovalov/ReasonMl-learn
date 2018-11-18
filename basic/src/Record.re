@@ -4,7 +4,7 @@
 type person = {
   age: int,
   name: string,
-  occupation: string
+  mutable occupation: string,
 }
 
 /* record can be a part of another */
@@ -12,12 +12,15 @@ type dataPerson = {
   person,
   id: int
 }
-
+/* compiled to an array with array index accesses instead of JS object  */
 let igor = {
   age: 33,
   name: "Igor",
   occupation: "Programmer"
 }
+
+/* mutable fields can be mutated (see person type definition above) */
+igor.occupation = "Tourist guide"
 
 let igorRecord = {
   person: igor,
@@ -43,3 +46,9 @@ let greeting = sayName(sasha)
 
 Js.log(greeting)
 
+
+type otherPerson = {age: int, name: string};
+type monster = {age: int, hasTentacles: bool};
+
+/* getAge will be expecting entity to be a monster type, as it's the last and closest type */
+let getAge = (entity) => entity.age;
